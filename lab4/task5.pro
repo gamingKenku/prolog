@@ -11,4 +11,8 @@ path(9, 8).
 path(7, 8).
 
 available_path(A, B) :-
-    
+    path(A, B).
+
+available_path(A, B) :-
+    path(A, Z),
+    available_path(Z, B).

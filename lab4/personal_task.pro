@@ -1,4 +1,4 @@
-unique_numbers(X, Y) :-
+three_digits_unique(X, Y) :-
     X =< Y,
     number_chars(X, [A, B, C]),
     (
@@ -7,4 +7,4 @@ unique_numbers(X, Y) :-
             write('')
     ),
     Next_X is X + 1,
-    unique_numbers(Next_X, Y).
+    three_digits_unique(Next_X, Y).

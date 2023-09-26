@@ -18,4 +18,8 @@ find_destination(Code) :-
     flight(Code, Destination, _),
     format('~w~n', [Destination]).
 
-find_cheaper_flights(Price) :-
+find_cheaper_flights(TargetPrice) :- 
+    flight(Code, Destination, Price),
+    Price < TargetPrice,
+    format('~w, ~w, ~w~n', [Code, Destination, Price]),
+    fail.

@@ -1,7 +1,9 @@
-fusion(L1,[ ],L1) :- !. 
-fusion([ ],L2,L2) :- !. 
-fusion([H1|T1],[H2|T2],[H1|T]) :-
-    H1<H2,!,
-    fusion(T1, [H2|T2],T).
-fusion(L1, [H2|T2],[H2|T]) :-
-    fusion(L1,T2,T).
+list_concat([], List, List).
+list_concat([Head1|Tail1], List2, [Head1|Result]) :-
+    list_concat(Tail1, List2, Result).
+
+main :-
+    List1 = [1, 2],
+    List2 = [3, 4],
+    list_concat(List1, List2, Result),
+    write(Result).

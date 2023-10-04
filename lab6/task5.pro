@@ -1,7 +1,7 @@
 divide_list(List, ResList1, ResList2) :-
     divide_list(List, ResList1, ResList2, 0).
 
-divide_list([], _, _, _) :- !.
+divide_list([], _, _, _).
 divide_list([Head|Tail], [Head|ResList1], ResList2, Counter) :-
     NextCounter is Counter + 1,
     Counter mod 2 =:= 0,

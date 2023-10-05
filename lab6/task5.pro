@@ -1,15 +1,18 @@
 divide_list(List, ResList1, ResList2) :-
+    format('Starting division of ~w~n', [List]),
     divide_list(List, ResList1, ResList2, 0).
 
 divide_list([], _, _, _).
 divide_list([Head|Tail], [Head|ResList1], ResList2, Counter) :-
     NextCounter is Counter + 1,
     Counter mod 2 =:= 0,
-    divide_list(Tail, ResList1, ResList2, NextCounter).
+    divide_list(Tail, ResList1, ResList2, NextCounter),
+    format('Moving ~w to first list~n', [Head]).
 divide_list([Head|Tail], ResList1, [Head|ResList2], Counter) :-
     NextCounter is Counter + 1,
     Counter mod 2 =\= 0,
-    divide_list(Tail, ResList1, ResList2, NextCounter).
+    divide_list(Tail, ResList1, ResList2, NextCounter),
+    format('Moving ~w to second list~n', [Head]).
 
 main :-
     List = [23,1,34,2,45,5,4],
@@ -19,5 +22,3 @@ main :-
     atomic_list_concat(AtomStrings1, ', ', String1),
     atomic_list_concat(AtomStrings2, ', ', String2),
     write(String1), write('|'), write(String2), nl.
-
-    

@@ -21,7 +21,7 @@ film_date(Day, Month, Year) :-
 
 names_list(List) :-
     findall(Name, film(Name, _, _, _, _), List).
-
+    
 genre_list(List) :-
     findall(Genre, film(_, _, _, Genre, _), GenreList),
     sort(GenreList, List).
